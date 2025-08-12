@@ -19,7 +19,16 @@ public class ActivityService {
     @Autowired
     private ActivityRepository activityRepository;
 
+    @Autowired
+    private UserValidationService userValidationService;
+
     public ActivityResponse trackUserActivity(ActivityRequest activityRequest) {
+
+        boolean validate=userValidationService.ValidateUser(activityRequest.getUserId());
+
+        if(!validate){
+            throw  new RuntimeException("Invalid user ID "+activityRequest.getUserId());
+        }
 
         Activity activity=Activity.builder()
                 .userId(activityRequest.getUserId())
