@@ -1,22 +1,23 @@
 server:
-  port:8081
+  port: 8081
 
 spring:
-    application:
-      name:
-        User-Service
-    datasource:
-      url: jdbc:postgresql://localhost:5432/Fitness_user
-      username:
-        postgres
-      password: root987@
-    jpa:
-      hibernate:
-        ddl-auto: update
-      database-platform: org.hibernate.dialect.PostgreSQLDialect
-
+  application:
+    name: USER-SERVICE
+  datasource:
+    url: jdbc:postgresql://localhost:5432/Fitness_user
+    username: postgres
+    password: root987@
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
 
 eureka:
   client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+    non-secure-port: ${server.port}

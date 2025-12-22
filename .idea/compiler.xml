@@ -9,13 +9,14 @@
         <outputRelativeToContentRoot value="true" />
         <module name="EurekaServer" />
       </profile>
-      <profile name="Annotation profile for ActivityService" enabled="true">
+      <profile name="Annotation profile for AiServices" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
         </processorPath>
+        <module name="AiServices" />
         <module name="UserService" />
         <module name="ActivityService" />
       </profile>
@@ -24,6 +25,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="ActivityService" options="-parameters" />
+      <module name="AiServices" options="-parameters" />
       <module name="EurekaServer" options="-parameters" />
       <module name="UserService" options="-parameters" />
     </option>
